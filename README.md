@@ -61,7 +61,7 @@ PAYPAL_SECRET = 'your_paypal_secret'
 ```
 (Replace each string with the actual Client Id and Secret from your Paypal Sandbox)
 
-Note: These should not be shared, e.g. on GitHub. Thus, you can create a new file called `credentials.py` in your project and place bothe lines there.
+*Note: These should not be shared, e.g. on GitHub. Thus, you can create a new file called `credentials.py` in your project and place bothe lines there.*
 
 Then, import both variables to your `views.py`:
 `from django_paypal.credentials import PAYPAL_SECRET, PAYPAL_CLIENT_ID`
@@ -80,6 +80,7 @@ Create three views:
 - create_payment
 - execute_payment
 - payment_checkout
+- payment_failed
 
 ```
 # views.py
@@ -203,17 +204,21 @@ urlpatterns = [
 Start your app
 `python manage.py runserver`
 
-Note: Since we haven defined a default url (for`http://127.0.0.1:8000/`) we will get an error:
-`Page not found (404)`
+*Note: Since we haven defined a default url (for`http://127.0.0.1:8000/`) we will get an error:
+`Page not found (404)`*
 
-Navigaate to:
+This is not a problem, simply continue.
+
+Navigate to:
 `http://127.0.0.1:8000/checkout/`
 
 The checkout page will look like this:
+
 ![checkout-page](./checkout-page.jpg)
 
 When clicking on `Pay with Paypal`, we are asked to login into Paypal.
-Note: Check the url. You will see that we are asked to log into the Sandbox-Paypal account.
+
+*Note: Check the url. You will see that we are asked to log into the Sandbox-Paypal account.*
 
 Go to https://developer.paypal.com/dashboard/accounts and click on the account with `...@personal.example.com`
 
@@ -224,7 +229,9 @@ Confirm the payment. You should be redirected to your `payment_success.html` pag
 # Step 6: Confirm payment
 
 Go to: https://sandbox.paypal.com
-Log in using the business Sandbox account
+
+Log in using the business Sandbox account.
+
 (Go to https://developer.paypal.com/dashboard/accounts and click on the account with `...@business.example.com`)
 
 Check if the payment occurs in your recent activity.
