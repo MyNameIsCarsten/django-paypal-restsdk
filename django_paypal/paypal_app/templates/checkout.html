@@ -1,16 +1,25 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <h1>Checkout Page</h1>
     
     <form action="{% url 'create_payment' %}" method="POST">
         {% csrf_token %}
-        <button type="submit">Pay with PayPal</button>
+        <button type="submit" class="paypal-button">
+            <span class="paypal-button-title">
+              Buy now with
+            </span>
+            <span class="paypal-logo">
+              <i>Pay</i><i>Pal</i>
+            </span>
+          </button>
     </form>
 </body>
 </html>

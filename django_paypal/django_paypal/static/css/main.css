@@ -1,0 +1,38 @@
+/* .paypal-logo */
+.paypal-logo {
+    font-family: Verdana, Tahoma;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.paypal-logo i:first-child {
+    color: #253b80;
+}
+
+.paypal-logo i:last-child {
+    color: #179bd7;
+}
+
+/* .paypal-button */
+.paypal-button {
+    padding: 15px 30px;
+    border: 1px solid #FF9933;
+    border-radius: 5px;
+    background-image: linear-gradient(#FFF0A8, #F9B421);
+    display: block;
+    min-width: 138px;
+    position: relative;
+}
+
+.paypal-button-title {
+    font-size: 14px;
+    color: #505050;
+    vertical-align: baseline;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+
+.paypal-button .paypal-logo {
+    display: inline-block;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+}
