@@ -236,3 +236,85 @@ Log in using the business Sandbox account.
 
 Check if the payment occurs in your recent activity.
 
+# Step 7: Button styling (optional)
+You can update the styling of the PayPal button.
+
+The styling is based on this [code](https://codepen.io/Kofaka/pen/OPbqNo) and was adjusted to only use regular css.
+
+\
+Create a folder named `static` in your project folder.
+
+Create a folder named `css` within this folder.
+
+Create a new file named `main.css` within this folder.
+
+Copy the css code to the file:
+```
+/* .paypal-logo */
+        .paypal-logo {
+            font-family: Verdana, Tahoma;
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+        .paypal-logo i:first-child {
+            color: #253b80;
+        }
+
+        .paypal-logo i:last-child {
+            color: #179bd7;
+        }
+
+        /* .paypal-button */
+        .paypal-button {
+            padding: 15px 30px;
+            border: 1px solid #FF9933;
+            border-radius: 5px;
+            background-image: linear-gradient(#FFF0A8, #F9B421);
+            display: block;
+            min-width: 138px;
+            position: relative;
+        }
+
+        .paypal-button-title {
+            font-size: 14px;
+            color: #505050;
+            vertical-align: baseline;
+            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+        }
+
+        .paypal-button .paypal-logo {
+            display: inline-block;
+            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+        }
+```
+
+Import the `os` module in your `settings.py`:
+
+`import os`
+
+Add a variable that stores the directory:
+
+`
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'django_paypal/static')
+]
+`
+Update `checkout.html`:
+
+```
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+```
+
+Your button should look like this now:
+
+![Paypal Button](./paypal-button.jpg)
